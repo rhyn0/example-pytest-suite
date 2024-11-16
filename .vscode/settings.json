@@ -1,0 +1,52 @@
+{
+    "ruff.path": [
+        "${workspaceFolder}/.venv/bin/ruff",
+    ],
+    "ruff.configuration": "./pyproject.toml",
+    "ruff.enable": true,
+    "ruff.lint.enable": true,
+    "ruff.importStrategy": "fromEnvironment",
+    "ruff.nativeServer": "on",
+    "mypy-type-checker.importStrategy": "fromEnvironment",
+    "mypy-type-checker.path": [
+        "${workspaceFolder}/.venv/bin/mypy",
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "--config-file=pyproject.toml",
+        "--no-cov",
+    ],
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "gitlens.codeLens.symbolScopes": [
+            "!Module"
+        ],
+        "editor.formatOnType": false,
+        "editor.formatOnSave": true,
+        "editor.wordBasedSuggestions": "off",
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+    },
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "pyproject.toml": "uv.lock",
+    },
+    "explorer.fileNesting.expand": true,
+    "toggleexcludedfiles.explorer.enabled": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.venv": true,
+        "**/.mypy_cache": true,
+        "**/.pytest_cache": true,
+        "**/__pycache__": true,
+        "**/.ruff_cache": true,
+    }
+}
