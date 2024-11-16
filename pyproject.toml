@@ -15,6 +15,9 @@ dev = [
     "pytest-insta>=0.3.0",
     "ruff>=0.7.4",
     "pydoclint>=0.5.9",
+    "hypothesis>=6.119.1",
+    "pytest-cov>=6.0.0",
+    "mypy==1.13.0",
 ]
 
 [build-system]
@@ -62,7 +65,13 @@ ignore = [
 select = ["ALL"]
 
 [tool.ruff.lint.per-file-ignores]
-
+"test/**/*.py" = [
+    "F401",   # unused import, sometimes misses on pytest fixture imports
+    "D101",   # Missing docstring in public class
+    "D102",   # Missing docstring in public method
+    "ANN201", # Missing return type annotation
+    "S101",   # use of assert
+]
 
 [tool.ruff.lint.flake8-errmsg]
 # Maximum string length for string literals in exception messages.
@@ -98,8 +107,6 @@ addopts = ["--doctest-modules", "--doctest-continue-on-failure"]
 minversion = "8.0"
 testpaths = ["test"]
 doctest_optionflags = "ELLIPSIS NORMALIZE_WHITESPACE"
-asyncio_default_fixture_loop_scope = "session"
-asyncio_mode = "strict"
 
 [tool.pytest_env]
 # put key value pairs to load into the environment prior to test run
@@ -127,6 +134,7 @@ exclude_also = [
 ]
 format = "markdown"
 fail_under = 80
+omit = ["test/**/*.py"]
 show_missing = true
 skip_covered = true
 skip_empty = true

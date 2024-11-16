@@ -28,7 +28,8 @@ repos:
     hooks:
       - id: mypy
         additional_dependencies: []
-        args: ["--config-file=pyproject.toml"]
+        pass_filenames: false
+        args: ["--config-file=pyproject.toml", "--warn-unused-configs", "src/"]
 
   - repo: https://github.com/jsh9/pydoclint
     rev: 0.5.9

@@ -1,3 +1,3 @@
-from .sorts import merge_sort
+from . import sorts
 
-__all__ = ["merge_sort"]
+__all__ = ["sorts"]
