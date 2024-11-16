@@ -1,3 +1,30 @@
+[project]
+name = "example-pytest-suite"
+dynamic = ["version"]
+description = "Add your description here"
+readme = "README.md"
+authors = [{ name = "Ryan Ozawa", email = "ryan.ozawa21@gmail.com" }]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit>=4.0.1",
+    "pytest>=8.3.3",
+    "pytest-benchmark>=5.1.0",
+    "pytest-insta>=0.3.0",
+    "ruff>=0.7.4",
+    "pydoclint>=0.5.9",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/example_pytest_suite/__about__.py"
+
+
 [tool.ruff]
 # Enable autofix for rules that support it.
 fix = true
@@ -13,7 +40,7 @@ required-version = ">=0.6.5"
 respect-gitignore = true
 # Show fixes in the output.
 show-fixes = true
-target-version = "py312"
+target-version = "py313"
 extend-exclude = ["scripts"]
 
 [tool.ruff.format]
@@ -28,6 +55,7 @@ fixable = ["ALL"]
 unfixable = []
 ignore = [
     "D100",   # Missing docstring in public module
+    "D104",   # Missing docstring in public package
     "FIX002", # Line contains TODO, consider resolving issue
     "TD003",  # Missing issue link on line with TODO
 ]
@@ -55,7 +83,7 @@ force-single-line = true
 # Instead, sort the imports by module, independent of import style.
 force-sort-within-sections = true
 # our code packages
-known-first-party = []
+known-first-party = ["example_pytest_suite"]
 
 
 [tool.ruff.lint.mccabe]
@@ -78,11 +106,10 @@ asyncio_mode = "strict"
 
 [tool.mypy]
 mypy_path = "."
-python_version = "3.12"
+python_version = "3.13"
 warn_unreachable = true
 warn_unused_ignores = true
 warn_unused_configs = true
-enable_incomplete_feature = "NewGenericSyntax"
 
 [tool.coverage.run]
 branch = true
@@ -107,3 +134,9 @@ skip_empty = true
 [tool.coverage.html]
 directory = "coverage_html_report"
 title = "Coverage Report"
+
+[tool.pydoclint]
+style = 'google'
+exclude = '\.git|\.tox|tests/.*|some_script\.py'
+generate_baseline = false
+baseline = "test/doclint/baseline.txt"
