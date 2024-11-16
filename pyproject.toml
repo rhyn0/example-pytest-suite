@@ -139,4 +139,5 @@ title = "Coverage Report"
 style = 'google'
 exclude = '\.git|\.tox|tests/.*|some_script\.py'
 generate_baseline = false
+quiet = true
 baseline = "test/doclint/baseline.txt"
