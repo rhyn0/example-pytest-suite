@@ -1,6 +1,9 @@
 name: CI / Python / Test
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -17,7 +20,6 @@ jobs:
     # skip if the PR is a draft
     if: github.event.pull_request.draft == false
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v4.1.0
 
@@ -25,7 +27,7 @@ jobs:
         uses: astral-sh/setup-uv@v2
         with:
           # Install a specific version of uv.
-          version: "0.4.10"
+          version: "0.5.1"
 
       - name: Set up Python using .python-version
         id: python
@@ -46,7 +48,7 @@ jobs:
 
       - name: Install Python dependencies
         if: steps.uv-cache.outputs.cache-hit != 'true'
-        run: uv sync --dev --all-extras
+        run: uv sync --all-extras
 
       - name: Test with pytest
         run: uv run pytest

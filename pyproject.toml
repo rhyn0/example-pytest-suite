@@ -96,7 +96,7 @@ convention = "google"
 [tool.pytest.ini_options]
 addopts = ["--doctest-modules", "--doctest-continue-on-failure"]
 minversion = "8.0"
-testpaths = ["tests"]
+testpaths = ["test"]
 doctest_optionflags = "ELLIPSIS NORMALIZE_WHITESPACE"
 asyncio_default_fixture_loop_scope = "session"
 asyncio_mode = "strict"
