@@ -107,7 +107,6 @@ addopts = [
     "--doctest-modules",
     "--doctest-continue-on-failure",
     "--benchmark-storage=file://./test/benchmark/.benchmark",
-    "--benchmark-autosave",
     "--benchmark-compare=0001",
     "--benchmark-compare-fail=mean:5%",
 ]
