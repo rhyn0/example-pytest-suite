@@ -1,6 +1,0 @@
-kind: Fixed
-body: |
-    GitHub Action runner for benchmarking properly runs
-time: 2024-11-16T17:08:28.003586-08:00
-custom:
-    Author: Ryan Ozawa
